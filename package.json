@@ -1,0 +1,20 @@
+{
+  "name": "multi-bundle-export",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup rollup.config.js"
+  },
+  "author": "Falk Hoppe <falkhoppe81@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "3.8.0",
+    "glob": "7.1.1",
+    "requirejs": "2.3.2",
+    "rollup": "0.36.3",
+    "rollup-plugin-buble": "0.14.0",
+    "standard": "8.4.0"
+  }
+}
