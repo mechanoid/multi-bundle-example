@@ -10,9 +10,21 @@ const externals = {
   paths: libs.reduce((paths, lib) => Object.assign(paths, { [lib]: `/dist/${lib}.js` }), {})
 }
 
-console.log(externals)
-
-libs.map((lib) => {
+// creating lib bundles out of sub directories of src.
+// All index.js files identity bundled libs, which will be retrievable by its basic dirname.
+//
+// Example:
+//
+// ```
+// import example from 'example'
+// ```
+//
+// will be resolved to
+//
+// ```
+// define(['/dist/logger.js'], function (...
+// ```
+const libBundles = libs.map((lib) => {
   return rollup(Object.assign({}, externals, {
     entry: `src/${lib}/index.js`,
     plugins: [buble()]
@@ -23,7 +35,8 @@ libs.map((lib) => {
   }))
 })
 
-Promise.all('')
+// build main endpoint bundle
+Promise.all(libBundles)
 .then(() => rollup(Object.assign({}, externals, {
   entry: 'src/app.js',
   plugins: [buble()]
