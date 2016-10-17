@@ -2,7 +2,6 @@
   "name": "multi-bundle-export",
   "version": "0.0.1",
   "description": "multi bundle export example",
-  "main": "index.js",
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/mechanoid/multi-bundle-example"
